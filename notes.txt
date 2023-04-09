@@ -11,6 +11,8 @@ sudo docker volume create chromium-cache
 sudo docker volume ls
 sudo docker volume inspect chromium-cache
 
+Remove build cache
+sudo docker builder prune
 
 Start a container with a volume
 
@@ -25,5 +27,14 @@ docker run -d \
   --name devtest \
   -v myvol2:/app \
   nginx:latest
+
+To get MAC Address of a running docker container
+docker inspect --format='{{range .NetworkSettings.Networks}}{{.MacAddress}}{{end}}' $INSTANCE_ID
+Refer: https://docs.docker.com/engine/reference/commandline/inspect/
+
+
+# Python Program to compute MAC address of host using UUID module
+import uuid
+print (hex(uuid.getnode()))
 
 
