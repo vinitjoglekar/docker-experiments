@@ -16,3 +16,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # matplotlib needs to be installed after numpy has been fully installed
 RUN pip install --no-cache-dir matplotlib
 
+# To build this image, run:
+# sudo docker build --tag pytorch:latest pytorch

@@ -1,0 +1,29 @@
+sudo docker run hello-world
+sudo nano /etc/docker/daemon.json
+
+sudo docker image ls -a
+sudo docker image inspect debian
+
+Chromium browser stores local caches at ~/.cache/chromium/
+Google Chrome browser stores local caches at ~/.cache/google-chrome/
+
+sudo docker volume create chromium-cache
+sudo docker volume ls
+sudo docker volume inspect chromium-cache
+
+
+Start a container with a volume
+
+docker run -d \
+  --name devtest \
+  --mount source=myvol2,target=/app \
+  nginx:latest
+
+OR
+
+docker run -d \
+  --name devtest \
+  -v myvol2:/app \
+  nginx:latest
+
+
