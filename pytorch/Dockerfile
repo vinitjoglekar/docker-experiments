@@ -1,13 +1,14 @@
 FROM python:3
 
-WORKDIR /github
-
-ARG USERNAME=u1
-
 # Add user u1
+ARG USERNAME=u1
 RUN useradd -b /home/ -m $USERNAME
 
+# Use user u1 for running the user process within the container
 USER $USERNAME
+
+# CD to /github on running the container
+WORKDIR /github
 
 ENV PATH=$PATH:/home/$USERNAME/.local/bin
 
