@@ -11,8 +11,8 @@ sudo docker run -it \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   $1 $2
 
-# $1 --> image name - pytorch, scikit-image etc.
+# $1 --> image name - pytorch, scikit etc.
 # $2 --> command to run - python, bash etc.
 # For example,
-# ./runpy.sh scikit-image bash
+# ./runpy.sh scikit bash
 
