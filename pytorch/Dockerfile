@@ -1,10 +1,12 @@
 FROM python:3
 
+# This is debian OS
+
 # Add user u1
 ARG USERNAME=u1
 RUN useradd -b /home/ -m $USERNAME
 
-# Use user u1 for running the user process within the container
+# Use the user for running the user process within the container
 USER $USERNAME
 
 # CD to /github on running the container

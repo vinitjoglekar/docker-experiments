@@ -8,15 +8,12 @@ RUN apk update && apk add --no-cache firefox
 ARG USERNAME=u1
 RUN adduser -D -h /home/$USERNAME $USERNAME
 
-# Use user u1 for running the user process within the container
+# Use the user for running the user process within the container
 USER $USERNAME
-WORKDIR /home/u1
+WORKDIR /home/$USERNAME
 
 # Copy hosts file for ad-blocker (from https://github.com/StevenBlack/hosts)
 # COPY --chown=root:root hosts /etc
-
-#EXPOSE 8887
-
 
 # To build this image, run:
 # sudo docker build --tag firefox:latest firefox
