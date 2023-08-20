@@ -1,0 +1,30 @@
+Need to figure out secure and private configuration for Firefox and update firefox.cfg accordingly.
+
+Refer:
+
+Firefox configuration
+https://wiki.archlinux.org/title/firefox
+
+Firefox configuration hardening via user.js
+https://github.com/pyllyukko/user.js
+
+Please Mozilla, don't touch the user.js functionality in Firefox
+https://www.ghacks.net/2020/01/06/please-mozilla-dont-touch-the-user-js-functionality-in-firefox/
+    The arkenfox user.js is a template which aims to provide as much privacy and enhanced security 
+    as possible, and to reduce tracking and fingerprinting as much as possible - while minimizing 
+    any loss of functionality and breakage (but it will happen).
+    https://github.com/arkenfox/user.js
+
+KB about Mozilla
+User.js file:           http://kb.mozillazine.org/User.js_file
+Prefs.js file:          http://kb.mozillazine.org/Prefs.js_file
+Locking preferences:    http://kb.mozillazine.org/Locking_preferences
+
+Mozilla Firefox Anti-Telemetry user.js 
+https://gist.github.com/Anton-ShadowBoss/d9b29a6945590e9171a779807cf44847
+
+My Advanced Privacy Settings for Firefox 
+https://obsigna.com/articles/1540564495.html
+
+
+

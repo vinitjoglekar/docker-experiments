@@ -27,11 +27,12 @@ fi
 mkdir --parents $HOME/docker_data/firefox/$CONTEXT_NAME/.mozilla
 
 sudo -b docker run --net=host \
+  --log-driver none \
   --env="DISPLAY="$DISPLAY \
   --env="QT_X11_NO_MITSHM=1" \
   --rm \
   --mount type=bind,src=$HOME/docker_data/firefox/$CONTEXT_NAME/.mozilla,dst=/home/u1/.mozilla \
   --mount type=bind,src=$HOME/docker_data/Downloads,dst=/home/u1/shared/Downloads \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:ro" \
-  firefox:latest firefox
+  firefox-custom:latest firefox
 
