@@ -1,8 +1,13 @@
-FROM alpine-gui:latest
+FROM alpine:latest
+
+# Alpine package details can be checked here: https://pkgs.alpinelinux.org/packages
+
+# Install fonts so that GUI applications don't display tofu characters
+# font-dejavu font-freefont font-noto-devanagari font-noto font-noto-extra
 
 # Install Firefox browser
-# Alpine package details can be checked here: https://pkgs.alpinelinux.org/packages
-RUN apk update && apk add --no-cache firefox 
+# firefox
+RUN apk update && apk add --no-cache font-dejavu font-freefont font-noto-devanagari font-noto font-noto-extra firefox
 
 # Add user u1
 ARG USERNAME=u1
