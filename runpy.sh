@@ -14,6 +14,7 @@ sudo docker run -it \
   --env="DISPLAY" \
   --env="QT_X11_NO_MITSHM=1" \
   --rm \
+  --network none \
   --mount type=bind,src=$HOME/github,dst=/github \
   --mount type=bind,src=$HOME/docker_data/python,dst=/home/u1/python \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
