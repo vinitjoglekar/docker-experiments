@@ -20,4 +20,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --no-cache-dir matplotlib
 
 # To build this image, run:
-# sudo docker build --tag pytorch:latest pytorch
+# sudo docker build --no-cache --tag pytorch:latest pytorch

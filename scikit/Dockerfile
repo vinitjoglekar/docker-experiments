@@ -20,4 +20,4 @@ RUN pip install --no-cache-dir scikit-image scikit-learn
 RUN pip install --no-cache-dir matplotlib
 
 # To build this image, run:
-# sudo docker build --tag scikit:latest scikit
+# sudo docker build --no-cache --tag scikit:latest scikit

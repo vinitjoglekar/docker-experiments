@@ -13,12 +13,12 @@ RUN useradd -b /home/ -m $USERNAME
 # Use the user for running the user process within the container
 USER $USERNAME
 
-# CD to /github on running the container
+# CD to ~/python on running the container
 WORKDIR /home/$USERNAME/python
 
 ENV PATH=$PATH:/home/$USERNAME/.local/bin
 
 # To build this image, run:
-# sudo docker build --tag python-audio:latest python-audio
+# sudo docker build --no-cache --tag python-audio:latest python-audio
 
 

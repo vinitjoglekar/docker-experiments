@@ -20,6 +20,12 @@ WORKDIR /home/$USERNAME
 # Copy hosts file for ad-blocker (from https://github.com/StevenBlack/hosts)
 # COPY --chown=root:root hosts /etc
 
+# Copy configuration files for Firefox to have custom settings
+# TODO: This did not work out. Need to find an alternative. Refer TODO.txt.
+# Until then, the by-pass id to use template as documented in `ff.sh`.
+# COPY --chown=root:root autoconfig.js /usr/lib/firefox/defaults/pref
+# COPY --chown=root:root firefox.cfg /usr/lib/firefox
+
 # To build this image, run:
-# sudo docker build --tag firefox:latest firefox
+# sudo docker build --no-cache --tag firefox:latest firefox
 

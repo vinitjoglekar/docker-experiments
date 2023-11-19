@@ -1,4 +1,4 @@
 #!/bin/bash
-sudo docker build --tag alpine-gui:latest alpine-gui
-sudo docker build --tag firefox:latest firefox
+sudo docker build --no-cache --tag firefox:latest firefox
+sudo docker build --no-cache --tag python-base:latest python-base
 

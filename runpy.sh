@@ -15,7 +15,7 @@ sudo docker run -it \
   --env="QT_X11_NO_MITSHM=1" \
   --rm \
   --network none \
-  --mount type=bind,src=$HOME/github,dst=/github \
+  --mount type=bind,src=$HOME/github,dst=/home/u1/github \
   --mount type=bind,src=$HOME/docker_data/python,dst=/home/u1/python \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
   $image $2
@@ -29,5 +29,5 @@ sudo docker run -it \
 # $2 --> command to run - python, bash etc.
 # For example,
 # ./runpy.sh base bash
-
+# ./runpy.sh base python3
 
