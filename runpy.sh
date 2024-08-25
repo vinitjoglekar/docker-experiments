@@ -3,24 +3,33 @@
 # Refer below link to know how to use GUIs with Docker
 # http://wiki.ros.org/docker/Tutorials/GUI
 
-arg1=$1
-
-if [ "$arg1" = "--with-internet" ]; then
-  netstack="--net=bridge"
-  image=$2
-  command=$3
-else
-  netstack="--network none"
-  image=$1
-  command=$2
+if [[ $# -eq 0 ]]; then
+    # Most common case: run bash using base python image without internet
+    netstack="--network none"
+    image="base"
+    command="bash"
+else 
+    arg1=$1
+    if [[ $arg1 -eq "--with-internet" || $arg1 -eq "-i" ]]; then
+        netstack="--net=bridge"
+        image=$2
+        command=$3
+    else
+        netstack="--network none"
+        image=$1
+        command=$2
+    fi
 fi
 
 if [ "$image" = "base" ]; then
-  image="python-base"
+    image="python-base"
 elif [ "$image" = "audio" ]; then
-  image="python-audio"
+    image="python-audio"
 elif [ "$image" = "ml" ]; then
-  image="python-ml"
+    image="python-ml"
+else
+    # Default image
+    image="python-base"
 fi
 
 sudo docker run -it \
