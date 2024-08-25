@@ -2,6 +2,8 @@ FROM python:3
 
 # This is debian OS
 
+RUN apt update && apt install -y ffmpeg
+
 RUN pip install --no-cache-dir numpy scipy pandas
 # matplotlib needs to be installed after numpy has been fully installed
 RUN pip install --no-cache-dir matplotlib

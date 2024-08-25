@@ -3,31 +3,43 @@
 # Refer below link to know how to use GUIs with Docker
 # http://wiki.ros.org/docker/Tutorials/GUI
 
-image=$1
+arg1=$1
+
+if [ "$arg1" = "--with-internet" ]; then
+  netstack="--net=bridge"
+  image=$2
+  command=$3
+else
+  netstack="--network none"
+  image=$1
+  command=$2
+fi
+
 if [ "$image" = "base" ]; then
   image="python-base"
 elif [ "$image" = "audio" ]; then
   image="python-audio"
+elif [ "$image" = "ml" ]; then
+  image="python-ml"
 fi
 
 sudo docker run -it \
   --env="DISPLAY" \
   --env="QT_X11_NO_MITSHM=1" \
   --rm \
-  --network none \
+  $netstack \
   --mount type=bind,src=$HOME/github,dst=/home/u1/github \
   --mount type=bind,src=$HOME/docker_data/python,dst=/home/u1/python \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-  $image $2
+  $image $command
 
 # $1 --> image name
 #          audio (implies python-audio)
 #          base (implies python-base)
-#          pytorch 
-#          scikit
+#          ml (tensorflow, keras, pytorch, jax, scikit-learn)
 #
 # $2 --> command to run - python, bash etc.
 # For example,
-# ./runpy.sh base bash
-# ./runpy.sh base python3
+# ./runpy.sh [--with-internet] base bash
+# ./runpy.sh [--with-internet] base python3
 
